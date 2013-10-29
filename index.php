@@ -23,6 +23,9 @@
       Email <input type="text" name="email" id="email"/></br>
       Company <input type="text" name="company" id="company"/></br>
       <input type="submit" name="submit" value="Submit" />
+      <A HREF="http://localhost/search.php">Click Here for search</A>
+      
+      
 </form>
 <?php
     // DB connection info
