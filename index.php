@@ -23,7 +23,7 @@
       Email <input type="text" name="email" id="email"/></br>
       Company <input type="text" name="company" id="company"/></br>
       <input type="submit" name="submit" value="Submit" />
-      <A HREF="http://localhost/search.php">Click Here for search</A>
+      <A HREF="search.php">Click Here to search</A>
       
       
 </form>
@@ -81,7 +81,7 @@
             echo "<td>".$registrant['email']."</td>";
             echo "<td>".$registrant['date']."</td>";
             echo "<td>".$registrant['company']."</td></tr>";
-        }}
+        }
         echo "</table>";
     } else {
         echo "<h3>No one is currently registered.</h3>";
