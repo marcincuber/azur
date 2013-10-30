@@ -81,7 +81,7 @@
             echo "<td>".$registrant['email']."</td>";
             echo "<td>".$registrant['date']."</td>";
             echo "<td>".$registrant['company']."</td></tr>";
-        }
+        }}
         echo "</table>";
     } else {
         echo "<h3>No one is currently registered.</h3>";
