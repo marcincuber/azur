@@ -32,46 +32,41 @@
     $user = "b86513aba0828a";
     $pwd = "c160755e";
     $db = "marcinAsSRJ9wTTU";
-
-
     // Connect to database.
     try {
         $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    }
-    catch(Exception $e){
-        die(var_dump($e));
-    }
-
-    // Retrieve data
-    if(!empty($_POST)) {
-    try {
-        $name = $_POST['name'];
-        $sql_select = "SELECT * FROM registration_tbl WHERE name='$name'";
-        $stmt = $conn->query($sql_select);
-        $registrants = $stmt->fetchAll();
-        if(count($registrants) > 0) {
-            echo "<h1>People who are registered:</h1>";
-            echo "<table>";
-            echo "<tr><th>Name</th>";
-            echo "<th>Email</th>";
-            echo "<th>Date</th>";
-            echo "<th>Company Name</th></tr>";
-            foreach($registrants as $registrant) {
-                echo "<tr><td>".$registrant['name']."</td>";
-                echo "<td>".$registrant['email']."</td>";
-                echo "<td>".$registrant['date']."</td>";
-                echo "<td>".$registrant['Company_Name']."</td></tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<h3>No one with that name is currently registered.</h3>";
-        }
+	
     }
     catch(Exception $e) {
          die(var_dump($e));
     }
+    
+  // Retrieve data
+
+    $name = $_POST['name'];
+    $name2 = mysql_real_escape_string( $_POST['name']);
+    $sql_select = "SELECT * FROM registration_tbl WHERE name ='$name2'" ;
+    $stmt = $conn->query($sql_select);
+    $registrants = $stmt->fetchAll(); 
+    if(count($registrants) > 0) {
+        echo "<h2>People who are registered:</h2>";
+        echo "<table>";
+        echo "<tr><th>Name</th>";
+        echo "<th>Email</th>";
+        echo "<th>Date</th>";
+	echo "<th>Company</th></tr>";
+        foreach($registrants as $registrant) {
+            echo "<tr><td>".$registrant['name']."</td>";
+            echo "<td>".$registrant['email']."</td>";
+            echo "<td>".$registrant['date']."</td>";
+            echo "<td>".$registrant['company']."</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "<h3>No one is currently registered.</h3>";
     }
+    
 ?>
 </body>
 </html>
