@@ -19,7 +19,7 @@
 <h1>Search using name</h1>
 <p>Enter the name and click <strong>Search</strong>.</p>
 <form method="post" action="search.php" enctype="multipart/form-data" >
-      Name <input type="text" name="name" id="name"/></br>
+      Nasdasdaame <input type="text" name="name" id="name"/></br>
       <input type="submit" name="search" value="Search" />
 </form>
 
@@ -45,8 +45,8 @@
   // Retrieve data
 
     $name = $_POST['name'];
-    $name2 = mysql_real_escape_string( $_POST['name']);
-    $sql_select = "SELECT * FROM registration_tbl WHERE name ='$name2'" ;
+    $name2 = mysql_real_escape_String($_POST['name']);
+    $sql_select = "SELECT * FROM registration_tbl WHERE name ='$name'" ;
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll(); 
     if(count($registrants) > 0) {
